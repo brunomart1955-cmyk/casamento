@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Presentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Pinyon+Script&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="menu">
+    <div class="menu-inner">
+      <a href="index.html" class="logo" data-iniciais></a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="presentes.html" class="ativo">Presentes</a>
+        <a href="confirmar.html">Confirmar presença</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="secao">
+    <div class="container">
+      <h2>Lista de presentes</h2>
+      <p class="subtitulo">
+        Sua presença já é o nosso maior presente! Como já temos nosso enxoval,
+        montamos uma lista de presentes simbólicos. Se quiser nos mimar,
+        escolha um item abaixo e envie o valor via Pix.
+      </p>
+      <div class="filtros" id="filtros"></div>
+      <div class="grade-presentes" id="grade-presentes"></div>
+    </div>
+  </section>
+
+  <div class="modal" id="modal-pix">
+    <div class="modal-caixa">
+      <button class="fechar" aria-label="Fechar">&times;</button>
+      <h3 id="pix-presente"></h3>
+      <p class="valor" id="pix-valor"></p>
+      <p style="margin-bottom:8px">Chave Pix:</p>
+      <div class="chave-pix" id="pix-chave"></div>
+      <button class="botao" id="copiar-pix">Copiar chave Pix</button>
+      <p class="aviso">Titular: <span id="pix-titular"></span><br>Muito obrigado pelo carinho! 💛</p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="logo" data-iniciais></span>
+    <span data-data></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

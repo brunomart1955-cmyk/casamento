@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmar Presença</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Pinyon+Script&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="menu">
+    <div class="menu-inner">
+      <a href="index.html" class="logo" data-iniciais></a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="presentes.html">Presentes</a>
+        <a href="confirmar.html" class="ativo">Confirmar presença</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="secao">
+    <div class="estreito">
+      <h2>Confirme sua presença</h2>
+      <p class="subtitulo">Ao enviar, abriremos o WhatsApp com a mensagem pronta para você.</p>
+
+      <form class="formulario" id="form-rsvp">
+        <label>Seu nome completo
+          <input type="text" name="nome" required placeholder="Ex: Maria Silva">
+        </label>
+
+        <div>
+          <p style="font-size:.9rem;font-weight:500;margin-bottom:6px">Você vai?</p>
+          <div class="opcoes">
+            <label><input type="radio" name="presenca" value="sim" checked> Sim, estarei lá!</label>
+            <label><input type="radio" name="presenca" value="nao"> Não poderei ir</label>
+          </div>
+        </div>
+
+        <label>Quantas pessoas (incluindo você)?
+          <select name="pessoas">
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5</option>
+          </select>
+        </label>
+
+        <label>Recado para os noivos (opcional)
+          <textarea name="recado" rows="3" placeholder="Deixe uma mensagem carinhosa..."></textarea>
+        </label>
+
+        <button type="submit" class="botao">Enviar confirmação</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span class="logo" data-iniciais></span>
+    <span data-data></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

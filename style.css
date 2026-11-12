@@ -1,0 +1,201 @@
+/* =========================================================
+   PALETA DE CORES — troque só aqui quando tiver a paleta final
+   ========================================================= */
+:root {
+  --cor-fundo: #f3f6f9;        /* fundo geral (azul bem clarinho) */
+  --cor-fundo-alt: #e6ecf3;    /* fundo de seções alternadas */
+  --cor-texto: #2f3a4d;        /* texto principal */
+  --cor-texto-suave: #66738a;  /* texto secundário */
+  --cor-destaque: #3f5478;     /* azul marinho da paleta */
+  --cor-destaque-hover: #2e3f5c;
+  --cor-azul-medio: #8597b8;
+  --cor-azul-claro: #b9c6d9;
+  --cor-rosa: #e8c4c4;         /* rosa das flores */
+  --cor-dourado: #c9a96a;      /* linhas douradas */
+  --cor-cartao: #ffffff;       /* fundo dos cartões */
+  --cor-borda: #d6dfea;
+
+  --fonte-script: "Pinyon Script", cursive;
+  --fonte-titulo: "Gilda Display", Georgia, serif;
+  --fonte-texto: "Quicksand", system-ui, sans-serif;
+  --raio: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fonte-texto);
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--cor-destaque); }
+
+/* ---------- Menu ---------- */
+.menu {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--cor-fundo) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.menu-inner {
+  max-width: 1080px; margin: 0 auto; padding: 14px 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.logo { font-family: var(--fonte-script); font-size: 2rem; text-decoration: none; color: var(--cor-destaque); }
+.menu nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.menu nav a { text-decoration: none; color: var(--cor-texto-suave); font-size: .95rem; }
+.menu nav a:hover, .menu nav a.ativo { color: var(--cor-destaque); }
+
+/* ---------- Estrutura ---------- */
+.secao { padding: 72px 16px; }
+.secao.alt { background: var(--cor-fundo-alt); }
+.container { max-width: 1080px; margin: 0 auto; }
+.estreito { max-width: 680px; margin: 0 auto; text-align: center; }
+h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 400; line-height: 1.15; color: var(--cor-destaque); }
+h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 16px; text-align: center; }
+.subtitulo { color: var(--cor-texto-suave); text-align: center; margin-bottom: 40px; }
+
+/* ---------- Capa ---------- */
+.capa {
+  min-height: 86vh; display: grid; place-items: center; text-align: center;
+  padding: 80px 16px; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at top, #ffffff 0%, var(--cor-fundo) 70%);
+}
+/* Flores nos cantos: exporte as flores do Canva como PNG transparente
+   e salve em img/flores-topo.png e img/flores-baixo.png */
+.capa::before, .capa::after {
+  content: ""; position: absolute; width: min(42vw, 340px); aspect-ratio: 1;
+  background-size: contain; background-repeat: no-repeat; pointer-events: none;
+}
+.capa::before { top: 0; left: 0; background-image: url("img/flores-topo.png"); background-position: top left; }
+.capa::after { bottom: 0; right: 0; background-image: url("img/flores-baixo.png"); background-position: bottom right; }
+.capa > div { position: relative; z-index: 1; }
+.capa .pre { font-family: var(--fonte-titulo); font-size: 1.6rem; color: var(--cor-destaque); }
+.capa h1 {
+  font-family: var(--fonte-script); font-weight: 400; color: var(--cor-destaque);
+  font-size: clamp(3.6rem, 13vw, 7.5rem); margin: 4px 0 8px; line-height: 1.2;
+}
+.capa h1 span { color: var(--cor-azul-medio); font-size: .7em; }
+.capa .data { font-size: 1.15rem; letter-spacing: .15em; color: var(--cor-destaque); font-weight: 600; }
+.divisor {
+  width: 120px; height: 1px; margin: 18px auto;
+  background: linear-gradient(90deg, transparent, var(--cor-dourado), transparent);
+}
+
+/* ---------- Bloco "Queridos" com foto ---------- */
+.querido { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.querido img { border-radius: var(--raio); width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: var(--cor-azul-claro); }
+.querido h2 { text-align: left; }
+.querido p { font-size: 1.1rem; letter-spacing: .03em; }
+.versiculo { margin-top: 28px; padding-left: 16px; border-left: 2px solid var(--cor-dourado); color: var(--cor-texto-suave); }
+.versiculo cite { display: block; margin-top: 6px; font-family: var(--fonte-titulo); color: var(--cor-destaque); font-style: normal; }
+@media (max-width: 720px) { .querido { grid-template-columns: 1fr; } }
+
+/* ---------- Paleta de trajes ---------- */
+.bolinhas { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+.bolinhas span { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--cor-borda); }
+
+.contagem { display: flex; justify-content: center; gap: 14px; margin: 36px 0; flex-wrap: wrap; }
+.contagem div {
+  background: var(--cor-cartao); border: 1px solid var(--cor-borda); border-radius: var(--raio);
+  padding: 14px 10px; min-width: 76px;
+}
+.contagem strong { display: block; font-family: var(--fonte-titulo); font-size: 2.2rem; font-weight: 500; }
+.contagem small { color: var(--cor-texto-suave); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-block; border: none; cursor: pointer;
+  background: var(--cor-destaque); color: #fff;
+  padding: 13px 26px; border-radius: 999px;
+  font: 500 .95rem var(--fonte-texto); text-decoration: none;
+  transition: background .2s;
+}
+.botao:hover { background: var(--cor-destaque-hover); }
+.botao.contorno { background: transparent; color: var(--cor-destaque); border: 1px solid var(--cor-destaque); }
+.botao.contorno:hover { background: var(--cor-destaque); color: #fff; }
+.botoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Cartões de informação ---------- */
+.grade-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.cartao {
+  background: var(--cor-cartao); border: 1px solid var(--cor-borda); border-radius: var(--raio);
+  padding: 28px; text-align: center;
+}
+.cartao h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.cartao p { color: var(--cor-texto-suave); }
+
+/* ---------- Lista de presentes ---------- */
+.filtros { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+.filtros button {
+  border: 1px solid var(--cor-borda); background: var(--cor-cartao); color: var(--cor-texto);
+  padding: 8px 16px; border-radius: 999px; cursor: pointer; font: inherit; font-size: .9rem;
+}
+.filtros button.ativo { background: var(--cor-destaque); border-color: var(--cor-destaque); color: #fff; }
+
+.grade-presentes { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+.presente {
+  background: var(--cor-cartao); border: 1px solid var(--cor-borda); border-radius: var(--raio);
+  overflow: hidden; display: flex; flex-direction: column;
+}
+.presente .icone {
+  aspect-ratio: 4 / 3; background: var(--cor-fundo-alt);
+  display: grid; place-items: center; font-size: 3.2rem;
+}
+.presente .icone img { width: 100%; height: 100%; object-fit: cover; }
+.presente .corpo { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.presente h3 { font-size: 1.35rem; }
+.presente .preco { font-weight: 600; color: var(--cor-destaque); }
+.presente .botao { margin-top: auto; text-align: center; padding: 10px; }
+
+/* ---------- Modal Pix ---------- */
+.modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,.45);
+  display: none; place-items: center; padding: 16px; z-index: 50;
+}
+.modal.aberto { display: grid; }
+.modal-caixa {
+  background: var(--cor-cartao); border-radius: var(--raio); padding: 32px 24px;
+  max-width: 420px; width: 100%; text-align: center; position: relative;
+}
+.modal-caixa h3 { font-size: 1.8rem; margin-bottom: 6px; }
+.modal-caixa .valor { font-size: 1.3rem; font-weight: 600; color: var(--cor-destaque); margin: 8px 0 18px; }
+.chave-pix {
+  background: var(--cor-fundo-alt); border-radius: 10px; padding: 12px;
+  font-family: monospace; word-break: break-all; margin-bottom: 14px;
+}
+.fechar {
+  position: absolute; top: 10px; right: 14px; background: none; border: none;
+  font-size: 1.6rem; cursor: pointer; color: var(--cor-texto-suave);
+}
+.aviso { font-size: .85rem; color: var(--cor-texto-suave); margin-top: 14px; }
+
+/* ---------- Formulário ---------- */
+.formulario {
+  background: var(--cor-cartao); border: 1px solid var(--cor-borda); border-radius: var(--raio);
+  padding: 32px 24px; display: grid; gap: 18px; text-align: left;
+}
+.formulario label { display: grid; gap: 6px; font-size: .9rem; font-weight: 500; }
+.formulario input, .formulario select, .formulario textarea {
+  font: inherit; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--cor-borda); background: var(--cor-fundo); color: var(--cor-texto);
+}
+.formulario input:focus, .formulario select:focus, .formulario textarea:focus {
+  outline: 2px solid var(--cor-destaque); outline-offset: 1px;
+}
+.opcoes { display: flex; gap: 10px; flex-wrap: wrap; }
+.opcoes label {
+  display: flex; align-items: center; gap: 8px; font-weight: 400;
+  border: 1px solid var(--cor-borda); border-radius: 10px; padding: 10px 14px; cursor: pointer;
+}
+
+/* ---------- Rodapé ---------- */
+footer { text-align: center; padding: 40px 16px; color: var(--cor-texto-suave); font-size: .9rem; }
+footer .logo { display: block; margin-bottom: 6px; }
+
+@media (max-width: 560px) {
+  .menu-inner { flex-direction: column; }
+  .secao { padding: 56px 16px; }
+}
