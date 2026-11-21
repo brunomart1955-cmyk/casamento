@@ -64,7 +64,24 @@ if (grade) {
 
   // Modal Pix
   const modal = document.getElementById("modal-pix");
-  document.getElementById("pix-chave").textContent = CASAMENTO.chavePix;
+  const listaChaves = document.getElementById("pix-chaves");
+  CASAMENTO.chavesPix.forEach(c => {
+    const item = document.createElement("div");
+    item.className = "item-pix";
+    item.innerHTML = `<small></small><div class="chave-pix"></div><button class="botao">Copiar</button>`;
+    item.querySelector("small").textContent = c.tipo;
+    item.querySelector(".chave-pix").textContent = c.exibir || c.chave;
+    item.querySelector("button").addEventListener("click", async e => {
+      try {
+        await navigator.clipboard.writeText(c.chave);
+        e.target.textContent = "Chave copiada! ✓";
+      } catch {
+        e.target.textContent = "Copie a chave acima";
+      }
+      setTimeout(() => (e.target.textContent = "Copiar"), 2500);
+    });
+    listaChaves.appendChild(item);
+  });
   document.getElementById("pix-titular").textContent = CASAMENTO.nomePix;
 
   grade.addEventListener("click", e => {
@@ -78,15 +95,6 @@ if (grade) {
     if (e.target === modal || e.target.classList.contains("fechar")) modal.classList.remove("aberto");
   });
 
-  document.getElementById("copiar-pix").addEventListener("click", async e => {
-    try {
-      await navigator.clipboard.writeText(CASAMENTO.chavePix);
-      e.target.textContent = "Chave copiada! ✓";
-    } catch {
-      e.target.textContent = "Copie a chave acima";
-    }
-    setTimeout(() => (e.target.textContent = "Copiar chave Pix"), 2500);
-  });
 }
 
 // Confirmação de presença -> abre o WhatsApp com a mensagem pronta

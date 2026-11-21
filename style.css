@@ -166,6 +166,9 @@ h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 16px; text-align: cente
   background: var(--cor-fundo-alt); border-radius: 10px; padding: 12px;
   font-family: monospace; word-break: break-all; margin-bottom: 14px;
 }
+.item-pix { margin-bottom: 18px; }
+.item-pix small { display: block; color: var(--cor-texto-suave); margin-bottom: 4px; }
+.item-pix .chave-pix { margin-bottom: 8px; }
 .fechar {
   position: absolute; top: 10px; right: 14px; background: none; border: none;
   font-size: 1.6rem; cursor: pointer; color: var(--cor-texto-suave);

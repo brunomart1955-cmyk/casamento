@@ -6,8 +6,11 @@ const CASAMENTO = {
   noiva: "Lavínia",
   data: "2027-08-07T09:00:00",          // ano-mês-diaThora:minuto
   whatsapp: "5527999999999",            // TROCAR: DDI + DDD + número, só números (recebe as confirmações)
-  chavePix: "seuemail@exemplo.com",     // TROCAR: chave Pix para os presentes
-  nomePix: "Nome do Titular da Conta",  // TROCAR
+  chavesPix: [                          // chaves Pix para os presentes
+    { tipo: "E-mail",  chave: "santoslavinia490@gmail.com" },
+    { tipo: "Celular", chave: "27995839697", exibir: "(27) 99583-9697" },
+  ],
+  nomePix: "Lavínia Santos",            // nome do titular (como aparece no banco)
 };
 
 /* Lista de presentes simbólicos — adicione, remova ou edite à vontade.
