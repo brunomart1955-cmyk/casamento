@@ -97,6 +97,35 @@ if (grade) {
 
 }
 
+// Galeria "Nosso pedido" -> lightbox com navegação
+const galeria = document.getElementById("galeria");
+if (galeria) {
+  const imgs = [...galeria.querySelectorAll("img")];
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-img");
+  let atual = 0;
+
+  const mostrar = i => {
+    atual = (i + imgs.length) % imgs.length;
+    lbImg.src = imgs[atual].src;
+    lbImg.alt = imgs[atual].alt;
+  };
+  const abrir = i => { mostrar(i); lightbox.classList.add("aberto"); lightbox.setAttribute("aria-hidden", "false"); };
+  const fechar = () => { lightbox.classList.remove("aberto"); lightbox.setAttribute("aria-hidden", "true"); };
+
+  imgs.forEach((img, i) => img.addEventListener("click", () => abrir(i)));
+  lightbox.querySelector(".lb-prev").addEventListener("click", e => { e.stopPropagation(); mostrar(atual - 1); });
+  lightbox.querySelector(".lb-next").addEventListener("click", e => { e.stopPropagation(); mostrar(atual + 1); });
+  lightbox.querySelector(".lb-fechar").addEventListener("click", fechar);
+  lightbox.addEventListener("click", e => { if (e.target === lightbox) fechar(); });
+  document.addEventListener("keydown", e => {
+    if (!lightbox.classList.contains("aberto")) return;
+    if (e.key === "Escape") fechar();
+    if (e.key === "ArrowLeft") mostrar(atual - 1);
+    if (e.key === "ArrowRight") mostrar(atual + 1);
+  });
+}
+
 // Confirmação de presença -> abre o WhatsApp com a mensagem pronta
 const form = document.getElementById("form-rsvp");
 if (form) {

@@ -194,6 +194,59 @@ h2 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 16px; text-align: cente
   border: 1px solid var(--cor-borda); border-radius: 10px; padding: 10px 14px; cursor: pointer;
 }
 
+/* ---------- Galeria (Nosso pedido) ---------- */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.galeria .foto {
+  margin: 0; overflow: hidden; border-radius: var(--raio);
+  border: 1px solid var(--cor-borda); background: var(--cor-azul-claro);
+  cursor: pointer; position: relative;
+}
+.galeria .foto img {
+  width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+  transition: transform .4s ease;
+}
+.galeria .foto.larga { grid-column: 1 / -1; }
+.galeria .foto.larga img { aspect-ratio: 16 / 9; }
+.galeria .foto:hover img { transform: scale(1.05); }
+@media (max-width: 720px) {
+  .galeria { grid-template-columns: 1fr 1fr; }
+  .galeria .foto.larga { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) { .galeria { grid-template-columns: 1fr; } }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(25, 32, 46, .92);
+  display: none; place-items: center; padding: 24px;
+}
+.lightbox.aberto { display: grid; }
+.lightbox .lb-img {
+  max-width: min(92vw, 900px); max-height: 86vh;
+  border-radius: var(--raio); box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  animation: lb-in .25s ease;
+}
+@keyframes lb-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+.lb-fechar, .lb-nav {
+  position: fixed; background: rgba(255,255,255,.12); color: #fff;
+  border: none; cursor: pointer; border-radius: 999px;
+  width: 48px; height: 48px; font-size: 1.5rem; line-height: 1;
+  display: grid; place-items: center; transition: background .2s;
+}
+.lb-fechar:hover, .lb-nav:hover { background: rgba(255,255,255,.28); }
+.lb-fechar { top: 20px; right: 20px; font-size: 1.9rem; }
+.lb-nav { top: 50%; transform: translateY(-50%); }
+.lb-prev { left: 20px; }
+.lb-next { right: 20px; }
+@media (max-width: 560px) {
+  .lb-nav { top: auto; bottom: 20px; transform: none; }
+  .lb-prev { left: 30%; } .lb-next { right: 30%; }
+}
+
 /* ---------- Rodapé ---------- */
 footer { text-align: center; padding: 40px 16px; color: var(--cor-texto-suave); font-size: .9rem; }
 footer .logo { display: block; margin-bottom: 6px; }

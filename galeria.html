@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso pedido</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Pinyon+Script&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="menu">
+    <div class="menu-inner">
+      <a href="index.html" class="logo" data-iniciais></a>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="galeria.html" class="ativo">Nosso pedido</a>
+        <a href="presentes.html">Presentes</a>
+        <a href="confirmar.html">Confirmar presença</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="secao">
+    <div class="container">
+      <h2>Nosso pedido</h2>
+      <p class="subtitulo">O dia em que tudo começou. Clique nas fotos para ampliar.</p>
+
+      <div class="galeria" id="galeria">
+        <figure class="foto"><img src="img/pedido-1.jpg" alt="O abraço do pedido" loading="lazy"></figure>
+        <figure class="foto"><img src="img/pedido-2.jpg" alt="De mãos dadas" loading="lazy"></figure>
+        <figure class="foto larga"><img src="img/pedido-3.jpg" alt="Caminhando juntos" loading="lazy"></figure>
+      </div>
+
+      <div class="botoes" style="margin-top:40px">
+        <a href="confirmar.html" class="botao">Confirmar presença</a>
+        <a href="presentes.html" class="botao contorno">Lista de presentes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-fechar" aria-label="Fechar">&times;</button>
+    <button class="lb-nav lb-prev" aria-label="Anterior">&#10094;</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <button class="lb-nav lb-next" aria-label="Próxima">&#10095;</button>
+  </div>
+
+  <footer>
+    <span class="logo" data-iniciais></span>
+    <span data-data></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
